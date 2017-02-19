@@ -1,0 +1,35 @@
+<!doctype html>
+<html ng-app=contatooh>
+<head>
+  <!-- carregar APIs -->
+  <script src="vendor/angular/angular.js"></script>
+  <script src="vendor/angular-resource/angular-resource.js"></script>
+  <script src="vendor/angular-route/angular-route.js"></script>
+
+  <!-- carregar Estilos APIs -->
+  <link rel="stylesheet" href="vendor/bootstrap/dist/css/bootstrap.css">
+  <link rel="stylesheet" href="vendor/bootstrap/dist/css/bootstrap-theme.css">
+
+  <!-- carregar core Angular -->
+  <script src="js/main.js"></script>
+
+  <!-- carregar Controllers -->
+  <script src="js/controllers/ContatosController.js"></script>
+  <script src="js/controllers/ContatoController.js"></script>
+
+  <!--carrega serviços-->
+  <script src="js/services/ContatoService.js"></script>
+  <!-- Configuracoes -->
+  <meta name="viewport" content="width=device-width">
+  <title>Contatooh</title>
+</head>
+
+<body>
+  <div class="text-right">
+    <p>
+      Logado como: <span id="usuario-logado"><%=usuarioLogado%><span>
+        </p>
+      </div>
+      <div ng-view></div>
+    </body>
+</html>

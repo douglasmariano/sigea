@@ -12,7 +12,12 @@ function($scope, $routeParams, Contato) {
     .catch(function(erro){
       $scope.mensagem = {texto: 'Nao foi possivel salvar.'};
     });
-};
+  };
+
+  Contato.query(function(contatos){
+    console.log(contatos);
+    $scope.contatos = contatos;
+  });
 
   Contato.get({id: $routeParams.contatoId},
   function(contato) {
@@ -25,4 +30,6 @@ function($scope, $routeParams, Contato) {
     console.log(erro);
     }
   );
+
+
 });

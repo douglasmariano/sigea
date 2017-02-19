@@ -5,6 +5,7 @@ function(Contato, $scope) {
   $scope.mensagem = {texto: ''};
 
   function buscaContatos() {
+
     Contato.query(
       function(contatos) {
         $scope.contatos = contatos;
