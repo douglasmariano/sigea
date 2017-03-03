@@ -4,10 +4,14 @@ var bodyParser = require('body-parser');
 var cookieParser = require('cookie-parser');
 var session = require('express-session');
 var passport = require('passport');
+var helmet = require('helmet');
+
 
 module.exports = function(){
   var app = express();
+  app.use(helmet());
   app.set('port', 3000);
+
 
   app.set('view engine', 'ejs');
   app.set('views','./app/views');
@@ -25,6 +29,11 @@ module.exports = function(){
   app.use(passport.initialize());
   app.use(passport.session());
 
+  app.use(helmet.hidePoweredBy({setTo: 'PHP 5.5.14'}));
+  app.use(helmet.frameguard());
+  app.use(helmet.xssFilter());
+  app.use(helmet.noSniff());
+
   //var home = require('../app/routes/home');
   //home(app);
 
@@ -33,6 +42,9 @@ module.exports = function(){
     .then('routes/auth.js')
     .then('routes')
     .into(app);
+  app.get('*', function(req,res){
+    res.status(404).render('404');
+  });
 
   return app;
 
