@@ -1,5 +1,5 @@
 angular.module('contatooh').factory('Contato',
-function($resource) {
+  function($resource) {
 
-  return $resource('/contatos/:id');
-});
+    return $resource('/contatos/:id');
+  });

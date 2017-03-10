@@ -1,36 +1,46 @@
-<h1 class="text-center">Contato</h1>
-<p ng-show="mensagem.texto">
+<!-- Página de cadastro de uma entidade -->
+
+<!-- Título da página -->
+<h1 class="text-center">Inserir Contato</h1>
+
+<p ng-show="mensagem.texto" class="{{mensagem.tipo}}">
   {{mensagem.texto}}
 </p>
-<form ng-submit="salva()">
+
+<!-- Formulário de cadastro -->
+<form ng-submit="salva()" class="form-horizontal">
+
   <div class="form-group">
-    <label for="nome">Nome completo</label>
-    <input type="text" class="form-control" id="nome"
-    name="nome" required ng-model="contato.nome">
-  </div>
-  <div class="form-group">
-    <label for="email">Email</label>
-    <div class="input-group">
-      <span class="input-group-addon">@</span>
-      <input type="email" class="form-control" id="email"
-      placeholder="email@exemplo.com" name="email"
-      ng-model="contato.email" required>
+    <label class="col-sm-2 control-label" for="nome">Nome completo</label>
+    <div class="col-sm-10">
+      <input type="text" class="form-control" id="nome" name="nome" required ng-model="contato.nome">
     </div>
   </div>
+
   <div class="form-group">
-    <label for ="emergencia"> Emergência </label>
-    <select id="emergencia" class="form-control"
-            ng-model="contato.emergencia"
-            ng-options=
-            "contato._id as contato.nome for contato in contatos">
-    </select>
+    <label class="col-sm-2 control-label" for="email">Email</label>
+    <div class="col-sm-10">
+      <div class="input-group">
+        <span class="input-group-addon">@</span>
+        <input type="email" class="form-control" id="email" placeholder="email@exemplo.com" name="email" ng-model="contato.email" required>
+      </div>
+    </div>
+  </div>
 
- </div>
-  <div>
-    <button type="submit" class="btn btn-primary">
-      Salvar
-    </button>
+  <div class="form-group">
+    <label class="col-sm-2 control-label" for="emergencia"> Emergência </label>
+    <div class="col-sm-10">
+      <select id="emergencia" class="form-control" ng-model="contato.emergencia" ng-options="contato._id as contato.nome for contato in contatos">
+      </select>
+    </div>
+  </div>
 
-    <a href="#/" class="btn btn-default">Voltar</a>
+  <div class="form-group">
+    <div class="col-sm-offset-2 col-sm-10">
+      <button type="submit" class="btn btn-primary">
+        Salvar
+      </button>
+      <a href="/contatos" class="btn btn-default">Voltar</a>
+    </div>
   </div>
 </form>

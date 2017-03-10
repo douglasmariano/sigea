@@ -1,32 +1,29 @@
 <!doctype html>
 <html ng-app=contatooh>
+
 <head>
 
-
   <!-- carregar Estilos APIs -->
-<!--build:css css/index.min.css -->
   <link rel="stylesheet" href="vendor/bootstrap/dist/css/bootstrap.css">
   <link rel="stylesheet" href="vendor/bootstrap/dist/css/bootstrap-theme.css">
-<!-- endbuild -->
 
-<!--build:js js/index.min.js -->
   <!-- carregar APIs -->
-
+  <script src="vendor/jquery/dist/jquery.js"></script>
   <script src="vendor/angular/angular.js"></script>
   <script src="vendor/angular-resource/angular-resource.js"></script>
   <script src="vendor/angular-route/angular-route.js"></script>
+  <script src="vendor/bootstrap/dist/js/bootstrap.js"></script>
 
   <!-- carregar core Angular -->
   <script src="js/main.js"></script>
 
-
   <!-- carregar Controllers -->
   <script src="js/controllers/ContatosController.js"></script>
   <script src="js/controllers/ContatoController.js"></script>
+  <script src="js/controllers/PaginaInicialController.js"></script>
 
   <!--carrega serviços-->
   <script src="js/services/ContatoService.js"></script>
-<!-- endbuild -->
 
   <!-- Configuracoes -->
   <meta name="viewport" content="width=device-width">
@@ -34,11 +31,45 @@
 </head>
 
 <body>
-  <div class="text-right">
-    <p>
-      Logado como: <span id="usuario-logado"><%=usuarioLogado%><span>
-        </p>
+
+  <!-- Este nav representa a barra superior de navegação. Todos os itens que aparecem na barra são inseridos aqui -->
+  <nav class="navbar navbar-default">
+    <div class="container-fluid">
+      <!-- Brand and toggle get grouped for better mobile display -->
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+        <a class="navbar-brand" href="/paginainicial">Contatooh</a>
       </div>
-      <div ng-view></div>
-    </body>
+
+      <!-- Collect the nav links, forms, and other content for toggling -->
+      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+        <ul class="nav navbar-nav">
+          <li><a href="/paginainicial">Página Inicial</a></li>
+          <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Menu<span class="caret"></span></a>
+            <ul class="dropdown-menu">
+              <li><a href="/contatos">Contatos</a></li>
+            </ul>
+          </li>
+        </ul>
+
+        <ul class="nav navbar-nav navbar-right">
+          <li><a href="#">Logado como: <span id="usuario-logado"><%=usuarioLogado%><span></a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  <!-- Fim da barra de navegação -->
+
+  <!-- ng-view é o local onde as partials são inseridas -->
+  <div class="container">
+    <div ng-view></div>
+  </div>
+</body>
+
 </html>

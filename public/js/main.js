@@ -1,5 +1,10 @@
 angular.module('contatooh', ['ngRoute','ngResource'])
-  .config(function($routeProvider) {
+  .config(function($locationProvider, $routeProvider) {
+
+$locationProvider.html5Mode({
+    enabled: true,
+    requireBase: false
+  });
 
 $routeProvider.when('/contatos', {
     templateUrl: 'partials/contatos.html',
@@ -13,5 +18,9 @@ $routeProvider.when('/contato', {
     templateUrl: 'partials/contato.html',
     controller: 'ContatoController'
 });
-$routeProvider.otherwise({redirectTo: '/contatos'});
+$routeProvider.when('/paginainicial', {
+    templateUrl: 'partials/paginaInicial.html',
+    controller: 'PaginaInicialController'
+});
+$routeProvider.otherwise({redirectTo: '/paginainicial'});
 });

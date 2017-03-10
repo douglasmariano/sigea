@@ -10,10 +10,8 @@ module.exports = function(app){
           }));
   app.get('/', function(req, res, next){
     if(req.isAuthenticated()){
-      console.log("isAuthenticated"+ req.user);
       return next();
-    }else {
-      console.log("not Authenticated");
+    }else {      
       res.render("auth");
     };
   });
