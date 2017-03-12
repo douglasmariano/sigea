@@ -27,7 +27,7 @@ angular.module('contatooh').controller('ContatosController',
         function(){
           $scope.mensagem = {
             texto: 'Contato removido com sucesso.',
-            tipo: 'bg-success'
+            tipo: 'alert alert-success'
           };
           buscaContatos()
         },
@@ -35,7 +35,7 @@ angular.module('contatooh').controller('ContatosController',
 
           $scope.mensagem = {
             texto: 'Não foi possível remover o contato.',
-            tipo: 'bg-danger'
+            tipo: 'alert alert-danger'
           };
           console.log(erro);
         }

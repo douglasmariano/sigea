@@ -1,0 +1,28 @@
+<!-- Página de cadastro de uma entidade -->
+
+<!-- Título da página -->
+<h1 class="text-center">Inserir Faculdade</h1>
+
+<p ng-show="mensagem.texto" class="{{mensagem.tipo}}">
+  {{mensagem.texto}}
+</p>
+
+<!-- Formulário de cadastro -->
+<form ng-submit="salva()" class="form-horizontal">
+
+  <div class="form-group">
+    <label class="col-sm-2 control-label" for="nome">Nome</label>
+    <div class="col-sm-10">
+      <input type="text" class="form-control" id="nome" name="nome" required ng-model="faculdade.nome">
+    </div>
+  </div>
+
+  <div class="form-group">
+    <div class="col-sm-offset-2 col-sm-10">
+      <button type="submit" class="btn btn-primary">
+        Salvar
+      </button>
+      <a href="/faculdades" class="btn btn-default">Voltar</a>
+    </div>
+  </div>
+</form>

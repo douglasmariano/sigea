@@ -1,15 +1,15 @@
-angular.module('contatooh').controller('ContatoController',
-  function($scope, $routeParams, Contato) {
+angular.module('contatooh').controller('AlunoController',
+  function($scope, $routeParams, Aluno) {
 
-    $scope.contato = new Contato();
+    $scope.aluno = new Aluno();
     $scope.salva = function() {
-      $scope.contato.$save().
+      $scope.aluno.$save().
       then(function() {
           $scope.mensagem = {
             texto: 'Salvo com sucesso.',
             tipo: 'alert alert-success'
           };
-          $scope.contato = new Contato();
+          $scope.aluno = new Aluno();
         })
         .catch(function(erro) {
           $scope.mensagem = {
@@ -19,20 +19,20 @@ angular.module('contatooh').controller('ContatoController',
         });
     };
 
-    Contato.query(function(contatos) {
-      console.log(contatos);
-      $scope.contatos = contatos;
+    Aluno.query(function(alunos) {
+      console.log(alunos);
+      $scope.alunos = alunos;
     });
 
-    Contato.get({
-        id: $routeParams.contatoId
+    Aluno.get({
+        id: $routeParams.alunoId
       },
-      function(contato) {
-        $scope.contato = contato;
+      function(aluno) {
+        $scope.aluno = aluno;
       },
       function(erro) {
         $scope.mensagem = {
-          texto: 'Nao foi possivel obter contato.',
+          texto: 'Nao foi possivel obter aluno.',
           tipo: 'alert alert-danger'
         };
         console.log(erro);
