@@ -31,7 +31,7 @@
     <tbody>
       <tr ng-repeat="evento in eventos | filter:filtro">
         <td>
-          <a ng-href="#/evento/{{evento._id}}">{{evento.nome}}</a>
+          <a ng-href="/evento/{{evento._id}}">{{evento.nome}}</a>
         </td>
         <td>{{evento.data}}</td>
         <td>{{evento.local}}</td>

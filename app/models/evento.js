@@ -15,7 +15,7 @@ module.exports = function(){
     },
     data: {
       type: Date,
-      required: true
+      required: false
     },
     local: {
       type: String,
@@ -30,13 +30,13 @@ module.exports = function(){
       required: false
     },
     certificado: {
-      type: Boolean,
-      required: true
+      type: String,
+      required: false
     },
     tipoEvento: {
       type: String,
       required: true
-    },    
+    },
     faculdade:{
       type: mongoose.Schema.ObjectId,
       ref:'Faculdade'

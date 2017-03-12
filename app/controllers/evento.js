@@ -55,7 +55,13 @@ module.exports = function(app) {
 
     var dados = {
       "nome": req.body.nome,
-      "email": req.body.email,
+      "codigo": req.body.codigo,
+      "data": req.body.data,
+      "local": req.body.local,
+      "valor": req.body.valor,
+      "quantidade": req.body.quantidade,
+      "certificado": req.body.certificado,
+      "tipoEvento": req.body.tipoEvento,
       "faculdade": req.body.faculdade || null
     };
     if (_id) {

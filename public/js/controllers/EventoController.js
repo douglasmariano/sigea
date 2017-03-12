@@ -3,6 +3,7 @@ angular.module('contatooh').controller('EventoController',
 
     $scope.evento = new Evento();
     $scope.salva = function() {
+      console.log($scope.evento);
       $scope.evento.$save().
       then(function() {
           $scope.mensagem = {
@@ -24,6 +25,7 @@ angular.module('contatooh').controller('EventoController',
       $scope.eventos = eventos;
     });
 
+  if($routeParams.eventoId){
     Evento.get({
         id: $routeParams.eventoId
       },
@@ -38,6 +40,7 @@ angular.module('contatooh').controller('EventoController',
         console.log(erro);
       }
     );
+  }
 
 
   });

@@ -59,7 +59,7 @@ $routeProvider.when('/evento/:eventoId', {
   });
 $routeProvider.when('/evento', {
     templateUrl: '/partials/evento.html',
-    controller: 'EventosController'
+    controller: 'EventoController'
 });
 
 // ************* Página Inicial
