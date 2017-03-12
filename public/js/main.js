@@ -37,7 +37,7 @@ $routeProvider.when('/aluno', {
 // ************* Cadastro de faculdades
 $routeProvider.when('/faculdades', {
     templateUrl: 'partials/faculdades.html',
-    controller: 'FaculdadeController'
+    controller: 'FaculdadesController'
   });
 $routeProvider.when('/faculdade/:faculdadeId', {
     templateUrl: 'partials/faculdade.html',
@@ -46,6 +46,20 @@ $routeProvider.when('/faculdade/:faculdadeId', {
 $routeProvider.when('/faculdade', {
     templateUrl: 'partials/faculdade.html',
     controller: 'FaculdadeController'
+});
+
+// ************* Cadastro de Evento
+$routeProvider.when('/eventos', {
+    templateUrl: 'partials/eventos.html',
+    controller: 'EventosController'
+  });
+$routeProvider.when('/evento/:eventoId', {
+    templateUrl: 'partials/evento.html',
+    controller: 'EventoController'
+  });
+$routeProvider.when('/evento', {
+    templateUrl: 'partials/evento.html',
+    controller: 'EventosController'
 });
 
 // ************* Página Inicial
