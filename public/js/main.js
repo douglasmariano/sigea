@@ -62,6 +62,20 @@ $routeProvider.when('/evento', {
     controller: 'EventoController'
 });
 
+// ************* Cadastro de Cursos
+$routeProvider.when('/cursos', {
+    templateUrl: '/partials/cursos.html',
+    controller: 'CursosController'
+  });
+$routeProvider.when('/curso/:cursoId', {
+    templateUrl: '/partials/curso.html',
+    controller: 'CursoController'
+  });
+$routeProvider.when('/curso', {
+    templateUrl: '/partials/curso.html',
+    controller: 'CursoController'
+});
+
 // ************* Página Inicial
 $routeProvider.when('/paginainicial', {
     templateUrl: '/partials/paginaInicial.html',

@@ -5,10 +5,14 @@ module.exports = function(){
     nome: {
       type: String,
       required: true
+    },
+    faculdade:{
+      type: mongoose.Schema.ObjectId,
+      ref:'Faculdade'
     }
 
   });
 
 
-  return mongoose.model('Faculdade', schema);
+  return mongoose.model('Curso', schema);
 };

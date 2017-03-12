@@ -1,7 +1,7 @@
 <!-- Página de listagem de uma entidade -->
 
 <!-- Título da página -->
-<h1 class="text-center">Faculdades</h1>
+<h1 class="text-center">Cursos</h1>
 
 <p ng-show="mensagem.texto" class="{{mensagem.tipo}}">
   {{mensagem.texto}}
@@ -9,7 +9,7 @@
 
 <!-- Filtro da tabela de resultados -->
 <p>
-  Buscar faculdade: <input ng-model="filtro" type="search" placeholder="parte do nome">
+  Buscar curso: <input ng-model="filtro" type="search" placeholder="parte do nome">
 </p>
 
 <!-- Tabela de resultados -->
@@ -18,16 +18,18 @@
     <thead>
       <tr>
         <th>Nome</th>
+        <th>Faculdade</th>
         <th class="text-center">Ação</th>
       </tr>
     </thead>
     <tbody>
-      <tr ng-repeat="faculdade in faculdades | filter:filtro">
+      <tr ng-repeat="curso in cursos | filter:filtro">
         <td>
-          <a ng-href="/faculdade/{{faculdade._id}}">{{faculdade.nome}}</a>
+          <a ng-href="/curso/{{curso._id}}">{{curso.nome}}</a>
         </td>
+        <td>{{curso.faculdade.nome}}</td>
         <td class="text-center">
-          <button ng-click="remove(faculdade)" class="btn btn-warning">
+          <button ng-click="remove(curso)" class="btn btn-warning">
             Remover
           </buttom>
         </td>
@@ -37,16 +39,16 @@
 </div>
 
 <!-- Quantitativo da tabela de resultados -->
-<p ng-show="faculdades.length">
-  Faculdades cadastrados: {{faculdades.length}}
+<p ng-show="cursos.length">
+  Cursos cadastrados: {{cursos.length}}
 </p>
-<p class="text-info" ng-hide="faculdades.length">
-  Não a faculdades cadastrados.
+<p class="text-info" ng-hide="cursos.length">
+  Não a cursos cadastrados.
 </p>
 
 <!-- Painel dos botões de ação -->
 <div class="panel panel-default">
   <div class="panel-body">
-    <a ng-href="/faculdade" class="btn btn-primary">Novo</a>
+    <a ng-href="/curso" class="btn btn-primary">Novo</a>
   </div>
 </div>

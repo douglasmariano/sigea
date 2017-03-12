@@ -1,15 +1,15 @@
-angular.module('contatooh').controller('FaculdadeController',
-  function($scope, $routeParams, Faculdade) {
+angular.module('contatooh').controller('CursoController',
+  function($scope, $routeParams, Curso, Faculdade) {
 
-    $scope.faculdade = new Faculdade();
+    $scope.curso = new Curso();
     $scope.salva = function() {
-      $scope.faculdade.$save().
+      $scope.curso.$save().
       then(function() {
           $scope.mensagem = {
             texto: 'Salvo com sucesso.',
             tipo: 'alert alert-success'
           };
-          $scope.faculdade = new Faculdade();
+          $scope.curso = new Curso();
         })
         .catch(function(erro) {
           $scope.mensagem = {
@@ -19,22 +19,26 @@ angular.module('contatooh').controller('FaculdadeController',
         });
     };
 
-    if ($routeParams.faculdadeId) {
-      Faculdade.get({
-          id: $routeParams.faculdadeId
+    Faculdade.query(function(faculdades) {
+      $scope.faculdades = faculdades;
+    });
+
+    if ($routeParams.cursoId) {
+      Curso.get({
+          id: $routeParams.cursoId
         },
-        function(faculdade) {
-          $scope.faculdade = faculdade;
+        function(curso) {
+          $scope.curso = curso;
         },
         function(erro) {
           $scope.mensagem = {
-            texto: 'Nao foi possivel obter faculdade.',
+            texto: 'Nao foi possivel obter curso.',
             tipo: 'alert alert-danger'
           };
           console.log(erro);
         }
       );
-
     }
+
 
   });
