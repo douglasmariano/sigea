@@ -26,7 +26,7 @@ module.exports = function(app) {
         function(evento) {
           if (!evento) throw new Error("Evento não encontrado");
           res.json(evento)
-        },Evento
+        },
         function(erro) {
           console.log(erro);
           res.status(404).json(erro)
