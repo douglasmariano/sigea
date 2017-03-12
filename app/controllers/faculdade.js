@@ -54,9 +54,7 @@ module.exports = function(app) {
     var _id = req.body._id;
 
     var dados = {
-      "nome": req.body.nome,
-      "email": req.body.email,
-      "emergencia": req.body.emergencia || null
+      "nome": req.body.nome
     };
     if (_id) {
       Faculdade.findByIdAndUpdate(_id, dados).exec()

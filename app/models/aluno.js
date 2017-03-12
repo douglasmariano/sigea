@@ -7,7 +7,7 @@ module.exports = function(){
       required: true
     },
     telefone: {
-      type: Number
+      type: String
     },
     email: {
       type: String,

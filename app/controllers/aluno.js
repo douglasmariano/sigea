@@ -20,6 +20,7 @@ module.exports = function(app) {
   };
 
   controller.obtemAluno = function(req, res) {
+    console.log("obtemAluno: id " + req.params.id);
     var _id = req.params.id;
     Aluno.findById(_id).exec()
       .then(
@@ -55,8 +56,9 @@ module.exports = function(app) {
 
     var dados = {
       "nome": req.body.nome,
+      "telefone": req.body.telefone,
       "email": req.body.email,
-      "emergencia": req.body.emergencia || null
+      "faculdade": req.body.faculdade || null
     };
     if (_id) {
       Aluno.findByIdAndUpdate(_id, dados).exec()

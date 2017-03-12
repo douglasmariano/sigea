@@ -1,7 +1,8 @@
 angular.module('contatooh').controller('AlunoController',
-  function($scope, $routeParams, Aluno) {
+  function($scope, $routeParams, Aluno, Faculdade) {
 
     $scope.aluno = new Aluno();
+
     $scope.salva = function() {
       $scope.aluno.$save().
       then(function() {
@@ -19,25 +20,26 @@ angular.module('contatooh').controller('AlunoController',
         });
     };
 
-    Aluno.query(function(alunos) {
-      console.log(alunos);
-      $scope.alunos = alunos;
+    Faculdade.query(function(faculdades) {
+      $scope.faculdades = faculdades;
     });
 
-    Aluno.get({
-        id: $routeParams.alunoId
-      },
-      function(aluno) {
-        $scope.aluno = aluno;
-      },
-      function(erro) {
-        $scope.mensagem = {
-          texto: 'Nao foi possivel obter aluno.',
-          tipo: 'alert alert-danger'
-        };
-        console.log(erro);
-      }
-    );
+    if ($routeParams.alunoId) {
+      Aluno.get({
+          id: $routeParams.alunoId
+        },
+        function(aluno) {
+          $scope.aluno = aluno;
+        },
+        function(erro) {
+          $scope.mensagem = {
+            texto: 'Nao foi possivel obter aluno.',
+            tipo: 'alert alert-danger'
+          };
+          console.log(erro);
+        }
+      );
+    }
 
 
   });

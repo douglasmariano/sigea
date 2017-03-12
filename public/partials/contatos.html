@@ -26,7 +26,7 @@
     <tbody>
       <tr ng-repeat="contato in contatos | filter:filtro">
         <td>
-          <a ng-href="#/contato/{{contato._id}}">{{contato.nome}}</a>
+          <a ng-href="/contato/{{contato._id}}">{{contato.nome}}</a>
         </td>
         <td>{{contato.email}}</td>
         <td>{{contato.emergencia.nome}}</td>
