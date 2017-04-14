@@ -13,11 +13,19 @@ module.exports = function(){
       type:String,
       required:true,
     },
+    password:{
+      type:String
+    },
     inclusao:{
       type: Date,
       default:Date.now
     }
   });
   schema.plugin(findOrCreate);
+
+  schema.methods.isAdministrador = function isAdministrador() {
+    return this.nome != "1";
+  }
+
   return mongoose.model('Usuario', schema);
 }

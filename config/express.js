@@ -4,7 +4,11 @@ var bodyParser = require('body-parser');
 var cookieParser = require('cookie-parser');
 var session = require('express-session');
 var passport = require('passport');
+var LocalStrategy = require('passport-local').Strategy;
 var helmet = require('helmet');
+var flash = require('connect-flash');
+var logout = require('express-passport-logout');
+
 
 
 module.exports = function() {
@@ -29,6 +33,7 @@ module.exports = function() {
   }));
   app.use(passport.initialize());
   app.use(passport.session());
+  app.use(flash());
 
   app.use(helmet.hidePoweredBy({
     setTo: 'PHP 5.5.14'
@@ -50,6 +55,8 @@ module.exports = function() {
   app.get('*', function(req, res) {
     res.status(404).render('404');
   });
+
+
 
   return app;
 

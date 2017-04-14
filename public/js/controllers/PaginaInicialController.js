@@ -18,5 +18,11 @@ angular.module('contatooh').controller('PaginaInicialController',
 
     // Alimenta a tabela de rotas da primeira página
     $scope.routes = $route.routes;
+    $scope.logout = function(){
+      delete $sessionStorage.sessname; //sessname is get sessionStorage username
+        $location.path('/login');
+                  };
+
+    console.log($route.routes)
 
   });

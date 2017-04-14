@@ -6,6 +6,7 @@
   <!-- carregar Estilos APIs -->
   <link rel="stylesheet" href="vendor/bootstrap/dist/css/bootstrap.css">
   <link rel="stylesheet" href="vendor/bootstrap/dist/css/bootstrap-theme.css">
+  <link rel="stylesheet" href="vendor/angular-bootstrap-datetimepicker/src/css/datetimepicker.css"/>
 
   <!-- carregar APIs -->
   <script src="vendor/jquery/dist/jquery.js"></script>
@@ -13,6 +14,9 @@
   <script src="vendor/angular-resource/angular-resource.js"></script>
   <script src="vendor/angular-route/angular-route.js"></script>
   <script src="vendor/bootstrap/dist/js/bootstrap.js"></script>
+  <script type="text/javascript" src="vendor/moment/moment.js"></script>
+  <script type="text/javascript" src="vendor/angular-bootstrap-datetimepicker/src/js/datetimepicker.js"></script>
+  <script type="text/javascript" src="vendor/angular-bootstrap-datetimepicker/src/js/datetimepicker.templates.js"></script>
 
   <!-- carregar core Angular -->
   <script src="js/main.js"></script>
@@ -39,7 +43,7 @@
 
   <!-- Configuracoes -->
   <meta name="viewport" content="width=device-width">
-  <title>Contatooh</title>
+  <title>S.G.E</title>
 </head>
 
 <body>
@@ -55,7 +59,7 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-        <a class="navbar-brand" href="/paginainicial">Contatooh</a>
+        <a class="navbar-brand" href="/paginainicial">S.G.E</a>
       </div>
 
       <!-- Collect the nav links, forms, and other content for toggling -->
@@ -63,19 +67,20 @@
         <ul class="nav navbar-nav">
           <li><a href="/paginainicial">Página Inicial</a></li>
           <li class="dropdown">
-            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Menu<span class="caret"></span></a>
+            <a href="" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Menu<span class="caret"></span></a>
             <ul class="dropdown-menu">
-              <li><a href="/contatos">Contatos</a></li>
-              <li><a href="/cursos">Cursos</a></li>
-              <li><a href="/alunos">Alunos</a></li>
-              <li><a href="/faculdades">Faculdades</a></li>
-              <li><a href="/eventos">Eventos</a></li>
+              <li ng-show="<%=user.isAdministrador() %>"><a href="#!/contatos">Contatos</a></li>
+              <li><a href="#!/cursos">Cursos</a></li>
+              <li><a href="#!/alunos">Alunos</a></li>
+              <li><a href="#!/faculdades">Faculdades</a></li>
+              <li><a href="#!/eventos">Eventos</a></li>
             </ul>
           </li>
         </ul>
 
         <ul class="nav navbar-nav navbar-right">
-          <li><a href="#">Logado como: <span id="usuario-logado"><%=usuarioLogado%><span></a></li>
+          <li><a href="#">Logado como: <span id="usuario-logado"><%=user.nome %><span></a></li>
+            <li class="fa fa-sign-out"><a href="/logout">Sair</a></li>
         </ul>
       </div>
     </div>

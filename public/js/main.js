@@ -1,10 +1,11 @@
-angular.module('contatooh', ['ngRoute','ngResource'])
+angular.module('contatooh', ['ngRoute','ngResource', 'ui.bootstrap.datetimepicker'])
   .config(function($locationProvider, $routeProvider) {
 
-$locationProvider.html5Mode({
+/*$locationProvider.html5Mode({
     enabled: true,
     requireBase: false
   });
+*/
 
 // ************* Cadastro de contatos
 $routeProvider.when('/contatos', {

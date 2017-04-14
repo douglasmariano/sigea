@@ -31,9 +31,9 @@
     <tbody>
       <tr ng-repeat="evento in eventos | filter:filtro">
         <td>
-          <a ng-href="/evento/{{evento._id}}">{{evento.nome}}</a>
+          <a ng-href="#!/evento/{{evento._id}}">{{evento.nome}}</a>
         </td>
-        <td>{{evento.data}}</td>
+        <td>{{evento.data | date :  "dd/MM/y" }}</td>
         <td>{{evento.local}}</td>
         <td>{{evento.valor}}</td>
         <td>{{evento.quantidade}}</td>
@@ -61,6 +61,6 @@
 <!-- Painel dos botões de ação -->
 <div class="panel panel-default">
   <div class="panel-body">
-    <a ng-href="/evento" class="btn btn-primary">Novo</a>
+    <a ng-href="#!/evento" class="btn btn-primary">Novo</a>
   </div>
 </div>
