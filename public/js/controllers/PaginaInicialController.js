@@ -1,5 +1,5 @@
 angular.module('contatooh').controller('PaginaInicialController',
-  function($scope, $route, Evento, Usuario) {
+  function($http, $scope, $route, Evento, Usuario) {
     $scope.filtro = '';
     /*
     tipos de mensagem disponíveis. Cada um tem uma cor.
@@ -25,8 +25,11 @@ angular.module('contatooh').controller('PaginaInicialController',
 
 
     $scope.participarEvento = function(user){
-
-      console.log(user);
+      $http.get("/usuario_logado").then(function(success){
+        console.log(success.data);
+      }, function(error){
+        console.log("erro");
+      });
     }
 
     $scope.mensagem = {

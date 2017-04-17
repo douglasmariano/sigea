@@ -3,6 +3,16 @@ var logout = require('express-passport-logout');
 
 module.exports = function(app){
 
+  app.get('/usuario_logado', function(req, res, next) {
+    var data = {
+      nome: req.user.nome,
+      login: req.user.login,
+      _id: req.user._id
+    };
+
+    res.send(data);
+
+  });
 
   app.get('/login', function(req, res, next) {
     res.render('login.ejs', { message: req.flash('loginMessage') });

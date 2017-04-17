@@ -32,10 +32,10 @@ module.exports = function(){
   schema.plugin(findOrCreate);
 
   schema.methods.isAdministrador = function isAdministrador() {
-    return this.permissao != "usuario";
+    return this.permissao == "usuario";
   }
   schema.methods.isAluno = function isAluno() {
-    return this.permissao != "aluno";
+    return this.permissao == "aluno";
   }
 
   return mongoose.model('Usuario', schema);
