@@ -19,6 +19,10 @@ module.exports = function(){
     faculdade:{
       type: mongoose.Schema.ObjectId,
       ref:'Faculdade'
+    },
+    usuario:{
+      type: mongoose.Schema.ObjectId,
+      ref:'Usuario'
     }
 
   });

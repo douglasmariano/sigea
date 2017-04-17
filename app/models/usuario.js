@@ -19,12 +19,23 @@ module.exports = function(){
     inclusao:{
       type: Date,
       default:Date.now
+    },
+    permissao:{
+      type:String,
+      default:'usuario'
+    },
+    eventosinscritos:{
+      type: mongoose.Schema.ObjectId,
+      ref:'Evento'
     }
   });
   schema.plugin(findOrCreate);
 
   schema.methods.isAdministrador = function isAdministrador() {
-    return this.nome != "1";
+    return this.permissao != "usuario";
+  }
+  schema.methods.isAluno = function isAluno() {
+    return this.permissao != "aluno";
   }
 
   return mongoose.model('Usuario', schema);

@@ -62,7 +62,9 @@ module.exports = function(app) {
       "quantidade": req.body.quantidade,
       "certificado": req.body.certificado,
       "tipoEvento": req.body.tipoEvento,
-      "faculdade": req.body.faculdade || null
+      "faculdade": req.body.faculdade || null,
+      "alunoinscrito": req.body.alunoinscrito || null,
+      "alunopresente": req.body.alunopresente || null
     };
     if (_id) {
       Evento.findByIdAndUpdate(_id, dados).exec()
@@ -89,6 +91,5 @@ module.exports = function(app) {
         );
     }
   };
-
   return controller;
 };

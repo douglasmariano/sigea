@@ -1,13 +1,72 @@
+
+
 <div class="jumbotron">
   <h1 class="text-center">
     Bem-vindo ao S.G.E
   </h1>
 </div>
 
+<p>
+  Buscar evento: <input ng-model="filtro" type="search" placeholder="parte do nome">
+</p>
+
 <p ng-show="mensagem.texto" class="{{mensagem.tipo}}">
   {{mensagem.texto}}
 </p>
 
+<div ng-repeat="usuario in usuarios track by usuario.id">
+{{usuario.id}} <br/>
+</div>
+
+<!-- Tabela de resultados -->
+<div class="table-responsive">
+  <table class="table table-hover">
+    <thead>
+      <tr>
+        <th>Evento</th>
+        <th>Data</th>
+        <th>Local</th>
+        <th>Valor</th>
+        <th>Quantidade</th>
+        <th>Certificado?</th>
+        <th>Tipo do Evento</th>
+        <th>Faculdade</th>
+        <th class="text-center">Ação</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr ng-repeat="evento in eventos | filter:filtro">
+        <td>{{evento.nome}}</td>
+        <td>{{evento.data | date :  "dd/MM/y HH:mm" }}</td>
+        <td>{{evento.local}}</td>
+        <td>{{evento.valor}}</td>
+        <td>{{evento.quantidade}}</td>
+        <td>{{evento.certificado}}</td>
+        <td>{{evento.tipoEvento}}</td>
+        <td>{{evento.faculdade.nome}}</td>
+
+        <td class="text-center">
+          <button ng-click="participarEvento()" class="btn btn-info">
+            Participar
+          </button>
+
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<!-- Quantitativo da tabela de resultados -->
+<p ng-show="eventos.length">
+  Eventos Disponiveis: {{eventos.length}}
+</p>
+<p class="text-info" ng-hide="eventos.length">
+  Não a eventos cadastrados.
+</p>
+
+
+
+<!--
 <p>
   Rotas disponíveis para o angular (debug)
 </p>
@@ -28,4 +87,4 @@
       <td>{{route.keys}}</td>
     </tr>
   </table>
-</div>
+</div> -->

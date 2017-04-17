@@ -14,7 +14,7 @@ module.exports = function() {
   },
   function(req, email, password, done) {
     Usuario.findOne({ 'login':  email }, function(err, user) {
-      console.log(user);
+      //console.log(user);
       if (err)
           return done(err);
       if (!user)

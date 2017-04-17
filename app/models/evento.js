@@ -40,6 +40,14 @@ module.exports = function(){
     faculdade:{
       type: mongoose.Schema.ObjectId,
       ref:'Faculdade'
+    },
+    alunoinscrito:{
+      type: mongoose.Schema.ObjectId,
+      ref:'Aluno'
+    },
+    alunopresente:{
+      type: mongoose.Schema.ObjectId,
+      ref:'Aluno'
     }
 
   });
