@@ -18,43 +18,68 @@
 {{usuario.id}} <br/>
 </div>
 
-<!-- Tabela de resultados -->
-<div class="table-responsive">
-  <table class="table table-hover">
-    <thead>
-      <tr>
-        <th>Evento</th>
-        <th>Data</th>
-        <th>Local</th>
-        <th>Valor</th>
-        <th>Quantidade</th>
-        <th>Certificado?</th>
-        <th>Tipo do Evento</th>
-        <th>Faculdade</th>
-        <th class="text-center">Ação</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr ng-repeat="evento in eventos | filter:filtro">
-        <td>{{evento.nome}}</td>
-        <td>{{evento.data | date :  "dd/MM/y HH:mm" }}</td>
-        <td>{{evento.local}}</td>
-        <td>{{evento.valor}}</td>
-        <td>{{evento.quantidade}}</td>
-        <td>{{evento.certificado}}</td>
-        <td>{{evento.tipoEvento}}</td>
-        <td>{{evento.faculdade.nome}}</td>
+<div class="row">
+  <div class="col-md-6">
+    <!-- Tabela de resultados -->
+    <div class="table-responsive">
+      <table class="table table-hover">
+        <thead>
+          <tr>
+            <th>Evento</th>
+            <th>Data</th>
+            <th>Local</th>
+            <th class="text-center">Ação</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr ng-repeat="evento in eventos | filter:filtro">
+            <td>{{evento.nome}}</td>
+            <td>{{evento.data | date :  "dd/MM/y HH:mm" }}</td>
+            <td>{{evento.local}}</td>
 
-        <td class="text-center">
-          <button ng-click="participarEvento()" class="btn btn-info">
-            Participar
-          </button>
+            <td class="text-center">
+              <button ng-click="participarEvento(evento)" class="btn btn-info">
+                Participar
+              </button>
 
-        </td>
-      </tr>
-    </tbody>
-  </table>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="col-md-6">
+    <!-- Tabela de eventos inscritos -->
+    <div class="table-responsive">
+      <table class="table table-hover">
+        <thead>
+          <tr>
+            <th>Evento</th>
+            <th>Data</th>
+            <th>Local</th>
+            <th class="text-center">Ação</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr ng-repeat="eventoInscrito in usuario.eventosinscritos | filter:filtro">
+            <td>{{eventoInscrito.nome}}</td>
+            <td>{{eventoInscrito.data | date :  "dd/MM/y HH:mm" }}</td>
+            <td>{{eventoInscrito.local}}</td>
+
+            <td class="text-center">
+              <button ng-click="removerEvento(eventoInscrito)" class="btn btn-info">
+                Remover
+              </button>
+
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
 </div>
+
 
 <!-- Quantitativo da tabela de resultados -->
 <p ng-show="eventos.length">
@@ -63,28 +88,3 @@
 <p class="text-info" ng-hide="eventos.length">
   Não a eventos cadastrados.
 </p>
-
-
-
-<!--
-<p>
-  Rotas disponíveis para o angular (debug)
-</p>
-<div class="table-responsive">
-  <table class="table table-hover">
-    <tr>
-      <th>controller</th>
-      <th>originalPath</th>
-      <th>templateUrl</th>
-      <th>regexp</th>
-      <th>keys</th>
-    </tr>
-    <tr ng-repeat="route in routes">
-      <td>{{route.controller}}</td>
-      <td>{{route.originalPath}}</td>
-      <td>{{route.templateUrl}}</td>
-      <td>{{route.regexp}}</td>
-      <td>{{route.keys}}</td>
-    </tr>
-  </table>
-</div> -->

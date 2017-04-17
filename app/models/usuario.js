@@ -24,10 +24,10 @@ module.exports = function(){
       type:String,
       default:'usuario'
     },
-    eventosinscritos:{
-      type: mongoose.Schema.ObjectId,
-      ref:'Evento'
-    }
+    eventosinscritos:[{
+        type: mongoose.Schema.ObjectId,
+        ref:'Evento'
+      }]
   });
   schema.plugin(findOrCreate);
 
