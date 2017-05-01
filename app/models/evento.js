@@ -41,13 +41,13 @@ module.exports = function(){
       type: mongoose.Schema.ObjectId,
       ref:'Faculdade'
     },
-    alunosinscritos:[{
+    usuariosinscritos:[{
       type: mongoose.Schema.ObjectId,
-      ref:'Aluno'
+      ref:'Usuario'
     }],
-    alunospresentes:[{
+    usuariospresentes:[{
       type: mongoose.Schema.ObjectId,
-      ref:'Aluno'
+      ref:'Usuario'
     }]
 
   });

@@ -63,8 +63,8 @@ module.exports = function(app) {
       "certificado": req.body.certificado,
       "tipoEvento": req.body.tipoEvento,
       "faculdade": req.body.faculdade || null,
-      "alunoinscrito": req.body.alunoinscrito || null,
-      "alunopresente": req.body.alunopresente || null
+      "usuariosinscritos": req.body.usuariosinscritos || null,
+      "usuariospresentes": req.body.usuariospresentes || null
     };
     if (_id) {
       Evento.findByIdAndUpdate(_id, dados).exec()

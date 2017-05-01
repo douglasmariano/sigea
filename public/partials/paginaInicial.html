@@ -1,5 +1,3 @@
-
-
 <div class="jumbotron">
   <h1 class="text-center">
     Bem-vindo ao S.G.E
@@ -15,7 +13,7 @@
 </p>
 
 <div ng-repeat="usuario in usuarios track by usuario.id">
-{{usuario.id}} <br/>
+  {{usuario.id}} <br/>
 </div>
 
 <div class="row">
@@ -37,7 +35,7 @@
         <tbody>
           <tr ng-repeat="evento in eventos | filter:filtro">
             <td>{{evento.nome}}</td>
-            <td>{{evento.data | date :  "dd/MM/y HH:mm" }}</td>
+            <td>{{evento.data | date : "dd/MM/y HH:mm" }}</td>
             <td>{{evento.local}}</td>
 
             <td class="text-center">
@@ -70,11 +68,11 @@
         <tbody>
           <tr ng-repeat="eventoInscrito in usuario.eventosinscritos | filter:filtro">
             <td>{{eventoInscrito.nome}}</td>
-            <td>{{eventoInscrito.data | date :  "dd/MM/y HH:mm" }}</td>
+            <td>{{eventoInscrito.data | date : "dd/MM/y HH:mm" }}</td>
             <td>{{eventoInscrito.local}}</td>
 
             <td class="text-center">
-              <button ng-click="removerEvento(eventoInscrito)" class="btn btn-info">
+              <button ng-click="removerEvento(eventoInscrito)" class="btn btn-danger">
                 Remover
               </button>
 
