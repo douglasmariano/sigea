@@ -29,6 +29,11 @@ module.exports = function(){
       type: Number,
       required: false
     },
+    quantidadedisponivel: {
+      type: Number,
+      required: false,
+      default:0
+    },
     certificado: {
       type: String,
       required: false
@@ -36,11 +41,7 @@ module.exports = function(){
     tipoEvento: {
       type: String,
       required: true
-    },
-    faculdade:{
-      type: mongoose.Schema.ObjectId,
-      ref:'Faculdade'
-    },
+    },    
     usuariosinscritos:[{
       type: mongoose.Schema.ObjectId,
       ref:'Usuario'
@@ -51,7 +52,12 @@ module.exports = function(){
     }]
 
   });
-
+  schema.methods.isExibirvagas = function isExibirvagas() {
+    return this.quantidade > 0;
+  }
+  schema.methods.isExibirparticipar = function isExibirvagas() {
+    return this.quantidade == this.quantidadedisponivel;
+  }
 
   return mongoose.model('Evento', schema);
 };

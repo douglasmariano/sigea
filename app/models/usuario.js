@@ -1,38 +1,41 @@
 var mongoose = require('mongoose');
 var findOrCreate = require('mongoose-findorcreate')
-module.exports = function(){
+module.exports = function () {
   var schema = mongoose.Schema({
     login: {
       type: String,
       required: true,
-      index:{
-        unique:true
+      index: {
+        unique: true
       }
     },
-    nome:{
-      type:String,
-      required:true,
+    nome: {
+      type: String,
+      required: true,
     },
-    password:{
-      type:String
+    password: {
+      type: String
     },
-    inclusao:{
+    inclusao: {
       type: Date,
-      default:Date.now
+      default: Date.now
     },
-    permissao:{
-      type:String,
-      default:'usuario'
+    matricula: {
+      type: String
     },
-    eventosinscritos:[{
-        type: mongoose.Schema.ObjectId,
-        ref:'Evento'
-      }]
+    permissao: {
+      type: String,
+      default: 'usuario'
+    },
+    eventosinscritos: [{
+      type: mongoose.Schema.ObjectId,
+      ref: 'Evento'
+    }]
   });
   schema.plugin(findOrCreate);
 
   schema.methods.isAdministrador = function isAdministrador() {
-    return this.permissao == "usuario";
+    return this.permissao == "administrador";
   }
   schema.methods.isAluno = function isAluno() {
     return this.permissao == "aluno";

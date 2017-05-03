@@ -29,6 +29,7 @@
             <th>Evento</th>
             <th>Data</th>
             <th>Local</th>
+            <th>Vagas</th>
             <th class="text-center">Ação</th>
           </tr>
         </thead>
@@ -37,9 +38,13 @@
             <td>{{evento.nome}}</td>
             <td>{{evento.data | date : "dd/MM/y HH:mm" }}</td>
             <td>{{evento.local}}</td>
+            <td>{{evento.quantidade}} / {{evento.quantidadedisponivel}}</td>
 
             <td class="text-center">
-              <button ng-click="participarEvento(evento)" class="btn btn-info">
+              <button ng-show="evento.isExibirparticipar()" ng-click="participarEvento(evento)" class="btn btn-default" disabled="disabled">
+                Participar
+              </button>
+              <button ng-hide="evento.isExibirparticipar()" ng-click="participarEvento(evento)" class="btn btn-info">
                 Participar
               </button>
 

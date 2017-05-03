@@ -31,16 +31,16 @@ angular.module('contatooh').controller('PaginaInicialController',
                 for (var j = 0; j < eventos_do_usuario.length; j++) {
                   var evento_usuario = eventos_do_usuario[j];
                   if (evento.codigo == evento_usuario.codigo) {
-                    
+
                     encontrou = true;
-                    
+
                   }
                 }
                 if (!encontrou) {
-                  if(new Date(evento.data) >= new Date()){
+                  if (new Date(evento.data) >= new Date()) {
                     lista_final.push(evento);
                   }
-                
+
                   console.log(lista_final);
                 }
               }
@@ -53,7 +53,7 @@ angular.module('contatooh').controller('PaginaInicialController',
             console.log("erro");
           });
 
-          
+          0
         },
         function (erro) {
           console.log(erro)
@@ -115,7 +115,11 @@ angular.module('contatooh').controller('PaginaInicialController',
             id: success.data._id
           }, function (usuario) {
 
-            console.log(eventoBuscado.usuariosinscritos.push(usuario));
+            eventoBuscado.usuariosinscritos.push(usuario);
+            if (eventoBuscado.quantidade > 0) {
+              eventoBuscado.quantidadedisponivel++;
+              console.log(eventoBuscado.quantidadedisponivel);
+            }
             eventoBuscado.$save()
               .then(function () { console.log("usuario no evento") })
               .catch();
@@ -153,8 +157,7 @@ angular.module('contatooh').controller('PaginaInicialController',
             })
             .catch();
 
-          carregarEventosUsuario();
-          buscaEventos();
+
         }, function (erro) {
           console.log(erro);
         });
@@ -168,9 +171,18 @@ angular.module('contatooh').controller('PaginaInicialController',
           });
 
           evento.usuariosinscritos = usuariosRestantes;
+          if (evento.quantidade > 0) {
+            if (evento.quantidadedisponivel > 0) {
+              evento.quantidadedisponivel--;
+            }
+            console.log(evento.quantidadedisponivel);
+          }
           evento.$save()
             .then(function () { })
             .catch();
+
+          carregarEventosUsuario();
+          buscaEventos();
         }
         )
 

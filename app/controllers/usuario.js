@@ -59,8 +59,10 @@ module.exports = function(app) {
       "nome": req.body.nome,
       "password": req.body.password,
       "permissao": req.body.permissao,
+      "matricula": req.body.matricula,
       "eventosinscritos": req.body.eventosinscritos || null
     };
+    
     if (_id) {
       Usuario.findByIdAndUpdate(_id, dados).exec()
         .then(
@@ -73,6 +75,12 @@ module.exports = function(app) {
           }
         );
     } else {
+
+      if(dados.matricula.length > 0 ){
+        dados.permissao = 'aluno'
+      }
+      console.log(dados.matricula.length)
+
       Usuario.create(dados)
         .then(
           function(usuario) {

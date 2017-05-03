@@ -60,11 +60,11 @@ module.exports = function(app) {
       "local": req.body.local,
       "valor": req.body.valor,
       "quantidade": req.body.quantidade,
+      "quantidadedisponivel": req.body.quantidadedisponivel,
       "certificado": req.body.certificado,
       "tipoEvento": req.body.tipoEvento,
-      "faculdade": req.body.faculdade || null,
-      "usuariosinscritos": req.body.usuariosinscritos || null,
-      "usuariospresentes": req.body.usuariospresentes || null
+      "usuariosinscritos": req.body.usuariosinscritos || [],
+      "usuariospresentes": req.body.usuariospresentes || []
     };
     if (_id) {
       Evento.findByIdAndUpdate(_id, dados).exec()
