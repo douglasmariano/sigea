@@ -35,6 +35,22 @@ module.exports = function(app) {
       );
   };
 
+  controller.obtemUsuarioPorLogin = function(req, res) {
+    var login = req.params.login;
+    Usuario.findOne({ "login": login }).populate('eventosinscritos').exec()
+      .then(
+        function(usuario) {
+          if (!usuario) throw new Error("Usuario não encontrado");
+
+          res.json(usuario);
+        },
+        function(erro) {
+          console.log(erro);
+          res.status(404).json(erro)
+        }
+      );
+  };
+
   controller.removeUsuario = function(req, res) {
     var _id = sanitize(req.params.id);
     Usuario.remove({

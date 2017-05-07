@@ -40,9 +40,7 @@ angular.module('contatooh').controller('PaginaInicialController',
                   if (new Date(evento.data) >= new Date()) {
                     lista_final.push(evento);
                   }
-
-                  console.log(lista_final);
-                }
+               }
               }
               $scope.eventos = lista_final;
             }, function (erro) {

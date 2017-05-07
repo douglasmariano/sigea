@@ -1,0 +1,43 @@
+<!-- Página de cadastro de uma entidade -->
+
+<!-- Título da página -->
+<h1 class="text-center">Inserir usuario</h1>
+
+<p ng-show="mensagem.texto" class="{{mensagem.tipo}}">
+  {{mensagem.texto}}
+</p>
+
+<!-- Formulário de cadastro -->
+<form ng-submit="salva()" class="form-horizontal">
+
+   <div class="form-group">
+    <label class="col-sm-2 control-label" for="nome">Login (email)</label>
+    <div class="col-sm-10">
+      <input type="text" disabled="{{desabilitar}}" class="form-control" id="login" name="login" required ng-model="usuario.login">
+    </div>
+  </div>
+
+
+  <div class="form-group">
+    <label class="col-sm-2 control-label" for="nome">Nome</label>
+    <div class="col-sm-10">
+      <input type="text" class="form-control" id="nome" name="nome" required ng-model="usuario.nome">
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label class="col-sm-2 control-label" for="nome">Matricula </label>
+    <div class="col-sm-10">
+      <input type="text" class="form-control" id="matricula" name="matricula" ng-model="usuario.matricula">
+    </div>
+  </div>
+
+  <div class="form-group">
+    <div class="col-sm-offset-2 col-sm-10">
+      <button type="submit" class="btn btn-primary">
+        Salvar
+      </button>
+      <a href="/#!/paginainicial" class="btn btn-default">Voltar</a>
+    </div>
+  </div>
+</form>

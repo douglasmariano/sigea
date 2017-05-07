@@ -21,18 +21,22 @@ $routeProvider.when('/contato', {
     controller: 'ContatoController'
 });
 
-// ************* Cadastro de alunos
-$routeProvider.when('/alunos', {
-    templateUrl: '/partials/alunos.html',
-    controller: 'AlunosController'
+// ************* Cadastro de usuarios
+$routeProvider.when('/usuarios', {
+    templateUrl: '/partials/usuarios.html',
+    controller: 'UsuariosController'
   });
-$routeProvider.when('/aluno/:alunoId', {
-    templateUrl: '/partials/aluno.html',
-    controller: 'AlunoController'
+$routeProvider.when('/usuario/:usuarioId', {
+    templateUrl: '/partials/usuario.html',
+    controller: 'UsuarioController'
   });
-$routeProvider.when('/aluno', {
-    templateUrl: '/partials/aluno.html',
-    controller: 'AlunoController'
+$routeProvider.when('/usuario_por_login/:login', {
+    templateUrl: '/partials/usuario.html',
+    controller: 'UsuarioController'
+  });
+$routeProvider.when('/usuario', {
+    templateUrl: '/partials/usuario.html',
+    controller: 'UsuarioController'
 });
 
 // ************* Cadastro de faculdades

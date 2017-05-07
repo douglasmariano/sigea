@@ -7,4 +7,7 @@ app.route('/usuarios')
 app.route('/usuarios/:id')
 .get(controller.obtemUsuario)
 .delete(controller.removeUsuario);
+
+app.route('/usuario_por_login/:login')
+.get(controller.obtemUsuarioPorLogin)
 };

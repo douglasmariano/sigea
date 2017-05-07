@@ -1,35 +1,35 @@
-angular.module('contatooh').controller('AlunosController',
-  function(Aluno, $scope) {
-    $scope.alunos = [];
+angular.module('contatooh').controller('UsuariosController',
+  function(Usuario, $scope) {
+    $scope.usuarios = [];
     $scope.filtro = '';
     $scope.mensagem = {
       texto: '',
       tipo: ''
     };
 
-    function buscaAlunos() {
+    function buscaUsuarios() {
 
-      Aluno.query(
-        function(alunos) {
-          $scope.alunos = alunos;
+      Usuario.query(
+        function(usuarios) {
+          $scope.usuarios = usuarios;
         },
         function(erro) {
           console.log(erro)
         }
       );
     }
-    buscaAlunos();
+    buscaUsuarios();
 
-    $scope.remove = function(aluno) {
-      Aluno.delete({
-          id: aluno._id
+    $scope.remove = function(usuario) {
+      Usuario.delete({
+          id: usuario._id
         },
         function(){
           $scope.mensagem = {
-            texto: 'Aluno removido com sucesso.',
+            texto: 'usuarios removido com sucesso.',
             tipo: 'alert alert-success'
           };
-          buscaAlunos()
+          buscaUsuarios()
         },
         function(erro) {
 

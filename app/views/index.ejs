@@ -30,8 +30,8 @@
   <script src="js/controllers/EventoController.js"></script>
   <script src="js/controllers/FaculdadesController.js"></script>
   <script src="js/controllers/FaculdadeController.js"></script>
-  <script src="js/controllers/AlunosController.js"></script>
-  <script src="js/controllers/AlunoController.js"></script>
+  <script src="js/controllers/UsuariosController.js"></script>
+  <script src="js/controllers/UsuarioController.js"></script>
   <script src="js/controllers/PaginaInicialController.js"></script>
 
   <!--carrega serviços-->
@@ -66,12 +66,12 @@
       <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
         <ul class="nav navbar-nav">
           <li><a href="#!/paginainicial">Página Inicial</a></li>
+          <li ng-hide="isAluno()"><a href="#!/usuario_por_login/<%=user.login %>"> Sou Aluno </a></li>
           <li class="dropdown">
             <a href="" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Menu<span class="caret"></span></a>
             <ul class="dropdown-menu">
               <li ng-show="<%=user.isAdministrador() %>"><a href="#!/contatos">Contatos</a></li>
               <li ng-show="<%=user.isAdministrador() %>"><a href="#!/cursos">Cursos</a></li>
-              <li ng-show="<%=user.isAdministrador() %>"><a href="#!/alunos">Alunos</a></li>
               <li ng-show="<%=user.isAdministrador() %>"><a href="#!/faculdades">Faculdades</a></li>
               <li ng-show="<%=user.isAdministrador() %>"><a href="#!/eventos">Eventos</a></li>
             </ul>
