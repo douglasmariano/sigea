@@ -63,6 +63,8 @@ module.exports = function(app) {
       "quantidadedisponivel": req.body.quantidadedisponivel,
       "certificado": req.body.certificado,
       "tipoEvento": req.body.tipoEvento,
+      "latitude": req.body.latitude,
+      "longitude": req.body.longitude,
       "usuariosinscritos": req.body.usuariosinscritos || [],
       "usuariospresentes": req.body.usuariospresentes || []
     };
