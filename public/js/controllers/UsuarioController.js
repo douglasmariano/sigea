@@ -42,13 +42,24 @@ angular.module('contatooh').controller('UsuarioController',
     $http.get("/usuario_por_login/" + $routeParams.login).then(function (success) {
 
       $scope.desabilitar = true;
-      
-    Usuario.get({
-           login:success.data.login
-    },function(usuario)
-      {$scope.usaurio = success.data}
-    )
+     
 
+       Usuario.get({
+        id: success.data._id
+      },
+      function(usuario) {
+         $scope.usuario = success.data;
+      },
+      function(erro) {
+        $scope.mensagem = {
+          texto: 'Nao foi possivel obter usuario.',
+          tipo: 'alert alert-danger'
+        };
+        console.log(erro);
+      }
+    );
+     
+      
     }, function (erro) {
       $scope.mensagem = {
           texto: 'Nao foi possivel obter usuario.',

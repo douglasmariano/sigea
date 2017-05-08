@@ -7,7 +7,7 @@ module.exports = function(app) {
 
   controller.listaTodos = function(req, res) {
     //Evento.find().populate('faculdade').exec()
-    var promise = Evento.find().populate('faculdade').exec()
+    var promise = Evento.find().populate('usuarios').exec()
       .then(
         function(eventos) {
           res.json(eventos);

@@ -1,7 +1,7 @@
 <!-- Página de listagem de uma entidade -->
 
 <!-- Título da página -->
-<h1 class="text-center">Alunos</h1>
+<h1 class="text-center">Usuarios Inscritos no Evento</h1>
 
 <p ng-show="mensagem.texto" class="{{mensagem.tipo}}">
   {{mensagem.texto}}
@@ -18,20 +18,17 @@
     <thead>
       <tr>
         <th>Nome</th>
-        <th>Telefone</th>
-        <th>E-mail</th>
-        <th>Faculdade</th>
+        <th>E-mail</th>      
         <th class="text-center">Ação</th>
       </tr>
     </thead>
     <tbody>
-      <tr ng-repeat="aluno in alunos | filter:filtro">
+      <tr ng-repeat="usuario in usuarios | filter:filtro">
         <td>
-          <a ng-href="/aluno/{{aluno._id}}">{{aluno.nome}}</a>
+          <a ng-href="/aluno/{{aluno._id}}">{{usuario.nome}}</a>
         </td>
-        <td>{{aluno.telefone}}</td>
-        <td>{{aluno.email}}</td>
-        <td>{{aluno.faculdade.nome}}</td>
+        <td>{{usuario.login}}</td>
+       
         <td class="text-center">
           <button ng-click="remove(aluno)" class="btn btn-warning">
             Remover

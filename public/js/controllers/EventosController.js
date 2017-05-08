@@ -1,5 +1,5 @@
 angular.module('contatooh').controller('EventosController',
-  function(Evento, $scope) {
+  function(Usuario, Evento, $scope ) {
     $scope.eventos = [];
     $scope.filtro = '';
     $scope.mensagem = {
@@ -41,4 +41,15 @@ angular.module('contatooh').controller('EventosController',
         }
       );
     };
+
+    $scope.listaParticipantes = function(){
+      
+       Usuario.query(
+        function(usuarios) {
+          $scope.usuarios = usuarios;
+        },
+        function(erro) {
+          console.log(erro)
+        })
+    }
   });

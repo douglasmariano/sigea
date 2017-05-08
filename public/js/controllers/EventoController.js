@@ -1,5 +1,5 @@
 angular.module('contatooh').controller('EventoController',
-  function($scope, $routeParams, Evento, Faculdade) {
+  function($scope, $routeParams, Evento, Usuario) {
 
     $scope.evento = new Evento();
     $scope.salva = function() {
@@ -19,8 +19,8 @@ angular.module('contatooh').controller('EventoController',
           };
         });
     };
-    Faculdade.query(function(faculdades) {
-      $scope.faculdades = faculdades;
+    Usuario.query(function(usuarios) {
+      $scope.usuarios = usuarios;
     });
 
 

@@ -25,6 +25,7 @@
         <th>Participantes</th>
         <th>Certificado?</th>
         <th>Tipo do Evento</th>
+        <th>Lista Participantes</th>
         <th class="text-center">Ação</th>
       </tr>
     </thead>
@@ -41,9 +42,14 @@
         <td>{{evento.certificado}}</td>
         <td>{{evento.tipoEvento}}</td>
         <td class="text-center">
+          <button ng-click="listaParticipantes()" class="btn btn-success">
+            Participantes
+          </button>
+        </td>
+        <td class="text-center">
           <button ng-click="remove(evento)" class="btn btn-warning">
             Remover
-          </buttom>
+          </button>
         </td>
       </tr>
     </tbody>

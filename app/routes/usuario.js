@@ -10,4 +10,5 @@ app.route('/usuarios/:id')
 
 app.route('/usuario_por_login/:login')
 .get(controller.obtemUsuarioPorLogin)
+.post(controller.salvaUsuario);
 };
