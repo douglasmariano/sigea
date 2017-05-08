@@ -41,7 +41,15 @@ module.exports = function(){
     tipoEvento: {
       type: String,
       required: true
+    },
+    latitude: {
+      type: Number,
+      required: true
     },    
+    longitude: {
+      type: Number,
+      required: true
+    },
     usuariosinscritos:[{
       type: mongoose.Schema.ObjectId,
       ref:'Usuario'
