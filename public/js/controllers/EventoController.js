@@ -47,6 +47,52 @@ angular.module('contatooh').controller('EventoController',
       });
     }
 
+    var marker = null;
+    function desenharMapa(myLatLng){
+
+      if (myLatLng) {
+        var map = new google.maps.Map(document.getElementById('map'), {
+            zoom: 11,
+            center: myLatLng
+          });
+
+        var marker = new google.maps.Marker({
+          position: myLatLng,
+          map: map,
+          title: 'Hello World!'
+        });
+      } else {
+        var map = new google.maps.Map(document.getElementById('map'), {
+          center: {lat: -16.681270, lng: -49.256299},
+          zoom: 11
+        });
+      }
+
+      $scope.map = map;
+    
+      var drawingManager = new google.maps.drawing.DrawingManager({
+        drawingMode: google.maps.drawing.OverlayType.MARKER,
+        drawingControl: true,
+        drawingControlOptions: {
+          position: google.maps.ControlPosition.TOP_CENTER,
+          drawingModes: ['marker']
+        }
+
+      });
+      drawingManager.setMap(map);
+      
+      google.maps.event.addListener(drawingManager, 'markercomplete', function (_marker) {
+        
+        $scope.evento.latitude = _marker.getPosition().lat();
+        $scope.evento.longitude = _marker.getPosition().lng();
+
+        if (marker) {
+          marker.setMap(null);
+        }
+        marker = _marker;
+      });
+    }
+
     $scope.evento = new Evento();
     $scope.salva = function() {
       console.log($scope.evento);
