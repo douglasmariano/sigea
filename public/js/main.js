@@ -38,6 +38,10 @@ $routeProvider.when('/usuario', {
     templateUrl: '/partials/usuario.html',
     controller: 'UsuarioController'
 });
+$routeProvider.when('/participantes', {
+    templateUrl: '/partials/participantes.html',
+    controller: 'ParticipantesController'
+  });
 
 // ************* Cadastro de faculdades
 $routeProvider.when('/faculdades', {

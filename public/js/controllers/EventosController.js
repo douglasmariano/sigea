@@ -43,13 +43,6 @@ angular.module('contatooh').controller('EventosController',
     };
 
     $scope.listaParticipantes = function(){
-      
-       Usuario.query(
-        function(usuarios) {
-          $scope.usuarios = usuarios;
-        },
-        function(erro) {
-          console.log(erro)
-        })
+                 
     }
   });

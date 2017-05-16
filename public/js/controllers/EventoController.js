@@ -63,8 +63,8 @@ angular.module('contatooh').controller('EventoController',
         });
       } else {
         var map = new google.maps.Map(document.getElementById('map'), {
-          center: {lat: -16.681270, lng: -49.256299},
-          zoom: 11
+          center: {lat: -16.72212155646997, lng: -49.23653841018677},
+          zoom: 15
         });
       }
 
