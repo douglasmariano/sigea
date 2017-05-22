@@ -7,7 +7,7 @@ angular.module('contatooh').controller('ParticipantesController',
       tipo: ''
     };
 
-    function buscaUsuarios() {
+    function buscaUsuarios(evento) {
 
       Usuario.query(
         function(usuarios) {

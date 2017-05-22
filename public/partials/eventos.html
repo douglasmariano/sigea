@@ -42,9 +42,9 @@
         <td>{{evento.certificado}}</td>
         <td>{{evento.tipoEvento}}</td>
         <td class="text-center">
-          <a ng-href="#!/participantes" class="btn btn-success">
+          <button type="button" ng-click="selecionarEvento(evento)" class="btn btn-success" data-toggle="modal" data-target="#myModal">
             Participantes
-          </a>
+          </button>
         </td>
         <td class="text-center">
           <button ng-click="remove(evento)" class="btn btn-warning">
@@ -54,6 +54,70 @@
       </tr>
     </tbody>
   </table>
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel">Participantes</h4>
+      </div>
+      <div class="modal-body">
+        <p ng-show="mensagemModal.texto" class="{{mensagemModal.tipo}}">
+          {{mensagemModal.texto}}
+        </p>
+        
+          <!-- Filtro da tabela de resultados -->
+        <p>
+          Buscar aluno: <input ng-model="filtroNome" type="search" placeholder="parte do nome">
+        </p>
+
+        <!-- Tabela de resultados -->
+        <div class="table-responsive">
+          <table class="table table-hover">
+            <thead>
+              <tr>
+                <th>Nome</th>
+                <th>E-mail</th>      
+                <th class="text-center">Ação</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr ng-repeat="usuario in eventoSelecionado.usuariosinscritos | filter:filtroNome">
+                <td>{{usuario.nome}}</td>
+                <td>{{usuario.login}}</td>
+                              
+                <td class="text-center">
+                   <button ng-hide="participandoEvento(usuario)" ng-click="presente(usuario)" class="btn btn-warning">
+                      Presente
+                    </button>
+                    <button ng-show="participandoEvento(usuario)" ng-click="removerPresenca(usuario)" class="btn btn-danger">
+                      Remover 
+                    </button>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <!-- Quantitativo da tabela de resultados -->
+        <p ng-show="eventoSelecionado.usuariosinscritos.length">
+          Alunos cadastrados: {{eventoSelecionado.usuariosinscritos.length}}
+        </p>
+        <p class="text-info" ng-hide="eventoSelecionado.usuariosinscritos.length">
+          Não a alunos cadastrados.
+        </p>
+
+
+
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Fechar</button>
+        </div>
+    </div>
+  </div>
 </div>
 
 <!-- Quantitativo da tabela de resultados -->

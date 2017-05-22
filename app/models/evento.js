@@ -63,9 +63,10 @@ module.exports = function(){
   schema.methods.isExibirvagas = function isExibirvagas() {
     return this.quantidade > 0;
   }
+
   schema.methods.isExibirparticipar = function isExibirvagas() {
     return this.quantidade.equals(this.quantidadedisponivel);
   }
-
+ 
   return mongoose.model('Evento', schema);
 };

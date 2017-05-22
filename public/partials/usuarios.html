@@ -9,7 +9,7 @@
 
 <!-- Filtro da tabela de resultados -->
 <p>
-  Buscar aluno: <input ng-model="filtro" type="search" placeholder="parte do nome">
+  Buscar usuarios: <input ng-model="filtro" type="search" placeholder="parte do nome">
 </p>
 
 <!-- Tabela de resultados -->
@@ -25,12 +25,12 @@
     <tbody>
       <tr ng-repeat="usuario in usuarios | filter:filtro">
         <td>
-          <a ng-href="/aluno/{{aluno._id}}">{{usuario.nome}}</a>
+          <a ng-href="/usuario/{{usuario._id}}">{{usuario.nome}}</a>
         </td>
         <td>{{usuario.login}}</td>
        
         <td class="text-center">
-          <button ng-click="remove(aluno)" class="btn btn-warning">
+          <button ng-click="remove(usuario)" class="btn btn-warning">
             Remover
           </buttom>
         </td>
@@ -41,9 +41,9 @@
 
 <!-- Quantitativo da tabela de resultados -->
 <p ng-show="alunos.length">
-  Alunos cadastrados: {{alunos.length}}
+  Alunos cadastrados: {{usuarios.length}}
 </p>
-<p class="text-info" ng-hide="alunos.length">
+<p class="text-info" ng-hide="usuarios.length">
   Não a alunos cadastrados.
 </p>
 

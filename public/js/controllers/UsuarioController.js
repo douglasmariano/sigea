@@ -1,5 +1,5 @@
 angular.module('contatooh').controller('UsuarioController',
-  function($http, $scope, $routeParams, Usuario) {
+  function($http, $scope, $routeParams,$window,$location, Usuario) {
 
     $scope.usuario = new Usuario();
 
@@ -18,6 +18,8 @@ angular.module('contatooh').controller('UsuarioController',
             tipo: 'alert alert-danger'
           };
         });
+        $window.location.reload()
+        $location.path("/paginaInicial") 
     };
     
     if($routeParams.usuarioId){
@@ -48,7 +50,7 @@ angular.module('contatooh').controller('UsuarioController',
         id: success.data._id
       },
       function(usuario) {
-         $scope.usuario = success.data;
+         $scope.usuario = usuario;
       },
       function(erro) {
         $scope.mensagem = {

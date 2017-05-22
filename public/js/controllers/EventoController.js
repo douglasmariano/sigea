@@ -7,7 +7,8 @@ angular.module('contatooh').controller('EventoController',
       if (myLatLng) {
         var map = new google.maps.Map(document.getElementById('map'), {
             zoom: 11,
-            center: myLatLng
+            center: myLatLng,
+            scrollwheel: false
           });
 
         var marker = new google.maps.Marker({
@@ -18,7 +19,8 @@ angular.module('contatooh').controller('EventoController',
       } else {
         var map = new google.maps.Map(document.getElementById('map'), {
           center: {lat: -16.681270, lng: -49.256299},
-          zoom: 11
+          zoom: 11,
+          scrollwheel: false
         });
       }
 
@@ -29,7 +31,8 @@ angular.module('contatooh').controller('EventoController',
         drawingControl: true,
         drawingControlOptions: {
           position: google.maps.ControlPosition.TOP_CENTER,
-          drawingModes: ['marker']
+          drawingModes: ['marker'],
+          scrollwheel: false
         }
 
       });

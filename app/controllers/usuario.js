@@ -69,7 +69,7 @@ module.exports = function(app) {
 
   controller.salvaUsuario = function(req, res) {
     var _id = req.body._id;
-
+    
     var dados = {
       "login": req.body.login,
       "nome": req.body.nome,
@@ -78,6 +78,9 @@ module.exports = function(app) {
       "matricula": req.body.matricula,
       "eventosinscritos": req.body.eventosinscritos || null
     };
+    if(dados.matricula.length > 0 ){
+        dados.permissao = 'aluno'
+      }
     
     if (_id) {
       Usuario.findByIdAndUpdate(_id, dados).exec()
@@ -92,9 +95,7 @@ module.exports = function(app) {
         );
     } else {
 
-      if(dados.matricula.length > 0 ){
-        dados.permissao = 'aluno'
-      }
+      
       console.log(dados.matricula.length)
 
       Usuario.create(dados)

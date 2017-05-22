@@ -7,7 +7,7 @@ module.exports = function(app) {
 
   controller.listaTodos = function(req, res) {
     //Evento.find().populate('faculdade').exec()
-    var promise = Evento.find().populate('usuarios').exec()
+    var promise = Evento.find().populate('usuariosinscritos').exec()
       .then(
         function(eventos) {
           res.json(eventos);
@@ -21,7 +21,7 @@ module.exports = function(app) {
 
   controller.obtemEvento = function(req, res) {
     var _id = req.params.id;
-    Evento.findById(_id).exec()
+    Evento.findById(_id).populate('usuariosinscritos').exec()
       .then(
         function(evento) {
           if (!evento) throw new Error("Evento não encontrado");
@@ -69,7 +69,7 @@ module.exports = function(app) {
       "usuariospresentes": req.body.usuariospresentes || []
     };
     if (_id) {
-      Evento.findByIdAndUpdate(_id, dados).exec()
+      Evento.findByIdAndUpdate(_id, dados).populate('usuariosinscritos').exec()
         .then(
           function(evento) {
             res.json(evento);
