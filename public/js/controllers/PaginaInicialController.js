@@ -12,6 +12,55 @@ angular.module('contatooh').controller('PaginaInicialController',
     */
 
     $scope.getLocation = function(eventoInscrito) {
+
+      $http.get("/usuario_logado").then(function (success) {
+
+        Usuario.get({
+          id: success.data._id
+        }, function (usuario) {
+
+          usuario.eventospresente.push(eventoInscrito);
+          usuario.$save()
+            .then(function () {
+              $scope.mensagem = {
+                texto: 'Presença confirmada.',
+                tipo: 'alert alert-success'
+              };
+            })
+            .catch();
+
+          carregarEventosUsuario();
+          buscaEventos();
+
+        }, function (erro) {
+          console.log(erro);
+        });
+
+
+        Evento.get({
+          id: eventoInscrito._id
+        }, function (eventoBuscado) {
+
+          Usuario.get({
+            id: success.data._id
+          }, function (usuario) {
+
+            eventoBuscado.usuariospresente.push(usuario);
+            eventoBuscado.$save()
+              .then(function () { console.log("usuario presente no evento") })
+              .catch();
+          });
+
+        }, function (erro) {
+          console.log(erro);
+        });
+
+      }, function (error) {
+        console.log("erro");
+      });
+
+
+
         if (navigator.geolocation) {
             navigator.geolocation.getCurrentPosition(function(position){
              console.log(getDistanceFromLatLonInKm(eventoInscrito.latitude,eventoInscrito.longitude,position.coords.latitude,position.coords.longitude ))

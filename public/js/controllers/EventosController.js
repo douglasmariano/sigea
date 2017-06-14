@@ -50,13 +50,13 @@ angular.module('contatooh').controller('EventosController',
       
      }
     $scope.participandoEvento = function(usuario){
-      return $scope.eventoSelecionado.usuariospresentes.filter(usuarioAtual => usuarioAtual === usuario._id).length; 
+      return $scope.eventoSelecionado.usuariospresente.filter(usuarioAtual => usuarioAtual === usuario._id).length; 
     } 
      
 
      $scope.presente = function(usuario){
 
-       $scope.eventoSelecionado.usuariospresentes.push(usuario);
+       $scope.eventoSelecionado.usuariospresente.push(usuario);
        $scope.eventoSelecionado.$save().
       then(function() {
           $scope.mensagemModal = {
@@ -90,8 +90,8 @@ angular.module('contatooh').controller('EventosController',
      }
 
      $scope.removerPresenca = function(usuario){
-       var listaUsuarioRestantes = $scope.eventoSelecionado.usuariospresentes.filter(usuarioAtual => usuarioAtual != usuario._id);
-       $scope.eventoSelecionado.usuariospresentes = listaUsuarioRestantes;
+       var listaUsuarioRestantes = $scope.eventoSelecionado.usuariospresente.filter(usuarioAtual => usuarioAtual != usuario._id);
+       $scope.eventoSelecionado.usuariospresente = listaUsuarioRestantes;
        $scope.eventoSelecionado.$save().
       then(function() {
           $scope.mensagemModal = {

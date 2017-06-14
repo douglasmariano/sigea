@@ -75,7 +75,7 @@
             <td>{{eventoInscrito.nome}}</td>
             <td>{{eventoInscrito.data | date : "dd/MM/y HH:mm" }}</td>
             <td>{{eventoInscrito.local}}</td>
-
+            
             <td class="text-center">
               <button ng-click="removerEvento(eventoInscrito)" class="btn btn-danger">
                 Remover
@@ -83,7 +83,7 @@
               <button type='button' ng-click="getLocation(eventoInscrito)" class="btn btn-success"> 
                 Estou Presente
               </button>
-
+              
             </td>
           </tr>
         </tbody>

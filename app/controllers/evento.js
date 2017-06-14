@@ -66,7 +66,7 @@ module.exports = function(app) {
       "latitude": req.body.latitude,
       "longitude": req.body.longitude,
       "usuariosinscritos": req.body.usuariosinscritos || [],
-      "usuariospresentes": req.body.usuariospresentes || []
+      "usuariospresente": req.body.usuariospresente || []
     };
     if (_id) {
       Evento.findByIdAndUpdate(_id, dados).populate('usuariosinscritos').exec()

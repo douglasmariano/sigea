@@ -30,6 +30,10 @@ module.exports = function () {
     eventosinscritos: [{
       type: mongoose.Schema.ObjectId,
       ref: 'Evento'
+    }],
+    eventospresente: [{
+      type: mongoose.Schema.ObjectId,
+      ref: 'Evento'
     }]
   });
   schema.plugin(findOrCreate);

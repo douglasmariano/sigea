@@ -54,12 +54,20 @@ module.exports = function(){
       type: mongoose.Schema.ObjectId,
       ref:'Usuario'
     }],
-    usuariospresentes:[{
+    usuariospresente:[{
       type: mongoose.Schema.ObjectId,
       ref:'Usuario'
     }]
 
   });
+
+  schema.methods.isPresente = function(usuario) {
+    //return this.usuariospresente.filter(function(u){
+    //  return u._id == usuario._id;
+    //}) > 0;
+    return "teste"
+  }
+
   schema.methods.isExibirvagas = function isExibirvagas() {
     return this.quantidade > 0;
   }
